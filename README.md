@@ -19,14 +19,15 @@ uuid(v9.0.0)<br>
  `npm install`
 
  と打ち必要なmoduleをインストールします。
-<p>
-config.jsonでいろいろ設定します<br>
-SQLはmariadbです(各自で鯖立ててください)<br>
-初回起動時はfunc.dbsetup()とindex.jsのreadyイベント内に書いてください(コメントアウトしてあるのでそれ参考に)<br>
-DiscorddevサイトでリダイレクトURLをhttp://(https://)ドメイン/loginにしてください。<br>
-</p>
 
-![ライセンス](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Cc-by-nc-sa_icon.svg/1280px-Cc-by-nc-sa_icon.svg.png "コモンズライセンス")
+`config.json`でいろいろ設定します
+
+SQLはmariadbです(各自で鯖立ててください)
+
+初回起動時は`func.dbsetup()`と`index.js`内の**readyイベント**内に書いてください(コメントアウトしてあるのでそれ参考に)
+
+Discorddevサイトで**リダイレクトURL**を`http://(https://)ドメイン/login`にしてください。
+
 
 # ライセンス
 
@@ -35,3 +36,5 @@ DiscorddevサイトでリダイレクトURLをhttp://(https://)ドメイン/logi
 <h3>非営利のみ</h3>
 
 <h3>ライセンスの継承</h3>
+
+![ライセンス](https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Cc-by-nc-sa_icon.svg/1280px-Cc-by-nc-sa_icon.svg.png "コモンズライセンス")
