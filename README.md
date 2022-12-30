@@ -22,17 +22,26 @@ uuid(v9.0.0)<br>
 
 `config.json`でいろいろ設定します
 
-SQLはmariadbです(各自で鯖立ててください)
+[SQLはmariadbです(各自で鯖立ててください)](#sqlの立ち上げ方)
 
 初回起動時は`func.dbsetup()`と`index.js`内の**readyイベント**内に書いてください(コメントアウトしてあるのでそれ参考に)
 
-Discorddevサイトで**リダイレクトURL**を`http://(https://)ドメイン/login`にしてください。
+[Discorddevサイト](https://discord.com/developers/applications/)で**リダイレクトURL**を`http://(https://)ドメイン/login`にしてください。
 
 ![例](https://media.discordapp.net/attachments/1054323958096339005/1058264338282070126/image.png?width=1440&height=603 "例")
 
 スコープをindentifyとguilds.joinにチェックしたURLを取得し、config.jsonに書き込む
 
 ![例](https://media.discordapp.net/attachments/1054323958096339005/1058265019801948180/image.png?width=1396&height=670 "例")
+
+シークレットとIDはここで取得できます。
+
+[image.png](https://media.discordapp.net/attachments/1054323958096339005/1058265654832144405/image.png?width=1371&height=671)
+
+TOKENはここです
+
+[image.png](https://media.discordapp.net/attachments/1054323958096339005/1058266082097512498/image.png?width=1382&height=671)
+
 
 `node index.js`で起動できます。
 
