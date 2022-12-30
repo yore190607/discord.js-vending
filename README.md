@@ -4,6 +4,7 @@
 # テスト環境
 <p> 
 Node.js(v19)<br>
+npm(v9.1.3)<br>
 axios(v1.2.1)<br>
 date-fns-tz(v1.3.7)<br>
 discord.js(v14.7.1)<br>
@@ -11,6 +12,7 @@ ejs(v3.1.8)<br>
 express(v4.18.2)<br>
 mariadb(v3.0.2)<br>
 uuid(v9.0.0)<br>
+windows(11)<br>
 </p>
 
  # 初回
