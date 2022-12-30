@@ -28,6 +28,12 @@ SQLはmariadbです(各自で鯖立ててください)
 
 Discorddevサイトで**リダイレクトURL**を`http://(https://)ドメイン/login`にしてください。
 
+![例](https://media.discordapp.net/attachments/1054323958096339005/1058264338282070126/image.png?width=1440&height=603 "例")
+
+スコープをindentifyとguilds.joinにチェックしたURLを取得し、config.jsonに書き込む
+
+![例](https://media.discordapp.net/attachments/1054323958096339005/1058265019801948180/image.png?width=1396&height=670 "例")
+
 `node index.js`で起動できます。
 
 コマンドについてはスラッシュコマンドなので起動すればわかると思います。
