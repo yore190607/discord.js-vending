@@ -24,11 +24,6 @@ uuid(v9.0.0)<br>
 
 SQLはmariadbです(各自で鯖立ててください)
 
-`SQL立ち上げ方`
-
-[windows](https://www.trifields.jp/how-to-install-mariadb-on-windows-2440)
-[linux](https://libproc.com/install-mariadb-on-linux-and-create-database/)
-
 初回起動時は`func.dbsetup()`と`index.js`内の**readyイベント**内に書いてください(コメントアウトしてあるのでそれ参考に)
 
 Discorddevサイトで**リダイレクトURL**を`http://(https://)ドメイン/login`にしてください。
@@ -40,6 +35,13 @@ Discorddevサイトで**リダイレクトURL**を`http://(https://)ドメイン
 `func.js`に独自の関数あります(SQLの操作はそっち使ったほうが楽？かも)
 
 tabelってスペル間違っていますけど気にしないでください。(途中で気づいた)
+
+# SQLの立ち上げ方
+[windows](https://www.trifields.jp/how-to-install-mariadb-on-windows-2440)
+
+[linux](https://libproc.com/install-mariadb-on-linux-and-create-database/)
+
+テーブル名、ユーザー名、パスワード、ホストが必要になります(rootでもいいですけどお勧めはしないです)
 
 # ライセンス
 
