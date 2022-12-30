@@ -1,4 +1,4 @@
-# discord.js-vending
+# discord.js-vending-machine
  discord.jsで作成した自販機BOT
 
 依頼受け付けています
