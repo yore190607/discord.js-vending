@@ -36,11 +36,11 @@ uuid(v9.0.0)<br>
 
 シークレットとIDはここで取得できます。
 
-[image.png](https://media.discordapp.net/attachments/1054323958096339005/1058265654832144405/image.png?width=1371&height=671)
+![image.png](https://media.discordapp.net/attachments/1054323958096339005/1058265654832144405/image.png?width=1371&height=671)
 
 TOKENはここです
 
-[image.png](https://media.discordapp.net/attachments/1054323958096339005/1058266082097512498/image.png?width=1382&height=671)
+![image.png](https://media.discordapp.net/attachments/1054323958096339005/1058266082097512498/image.png?width=1382&height=671)
 
 
 `node index.js`で起動できます。
