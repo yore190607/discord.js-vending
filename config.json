@@ -1,0 +1,22 @@
+{
+    "port": "web鯖のポート番号(例:80や3000,8080)",
+    "discord": {
+        "token": "BOTのトークン(devサイトで取得)",
+        "clientid": "BOTのID(devサイトで取得)",
+        "clientsecret": "BOTのシークレット(devサイトで取得)",
+        "siteurl": "サイトのURL(例:http://localhost:ポート/login)※/loginは必ずつける",
+        "auturl": "スコープがidentifyとguilds.joinのリンク(例:https://discord.com/api/oauth2/authorize?client_id=ボットID&redirect_uri=リダイレクトURL&response_type=code&scope=guilds.join%20identify",
+        "name": "BOTのアクティビティに表示する文字"
+    },
+    "db": {
+        "host": "DBをhostしているサーバー(BOTと同じ鯖ならlocalhost)",
+        "user": "DBのアクセスするユーザー(何もしてなかった場合はroot)",
+        "pass": "DBのアクセスするユーザーのパスワード",
+        "name": "DBの名前"
+    },
+    "paypay": {
+        "token": "paypayのアクセスTOKEN(/paypayでアカウントにログインするとDBのpaypayテーブルにtokenが保存されます)※各自で取得できる場合はその限りではない",
+        "id": "paypayのuuid(/paypayでアカウントにログインするとDBのpaypayテーブルにuuidが保存されます)※各自で取得できる場合はその限りではない"
+    },
+    "amount": "int型でサブスクの値段(例:1000)"
+}
