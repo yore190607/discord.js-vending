@@ -1,6 +1,13 @@
 # discord.js-vending
  discord.jsで作成した自販機BOT
 
+依頼受け付けています
+
+Discord 田中#1204
+
+詳しくはDMしてください。
+
+
 # テスト環境
 <p> 
 Node.js(v19)<br>
