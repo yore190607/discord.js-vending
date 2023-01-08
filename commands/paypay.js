@@ -17,7 +17,8 @@ module.exports = {
             if (!func.isHanEisu(interaction.options.getString("label"))) return await interaction.reply({ embeds: [{ title: "エラー", description: "ユーザー名は半角英数字にしてください。", color: 0x3aeb34 }], ephemeral: true });
             if (interaction.options.getString("password").length >= 32) return await interaction.reply({ embeds: [{ title: "エラー", description: "パスワードは32字以下です。", color: 0x3aeb34 }], ephemeral: true });
             if (interaction.options.getString("label").length > 10) return await interaction.reply({ embeds: [{ title: "エラー", description: "ユーザー名は10字未満にしてください。", color: 0x3aeb34 }], ephemeral: true });
-            const uuid = uuidv4();
+            const uuidc = uuidv4();
+            const uuidd = uuidv4();
             let header = {
                 "Client-Mode": "NORMAL",
                 "Client-OS-Version": "13.3.0",
@@ -27,10 +28,10 @@ module.exports = {
                 "Client-Version": "3.50.0",
                 "Is-Emulator": "false",
                 "Device-Name": "iPhone8,1",
-                "Client-UUID": uuid,
+                "Client-UUID": uuidc,
                 Timezone: "Asia/Tokyo",
                 "Client-OS-Type": "IOS",
-                "Device-UUID": uuid,
+                "Device-UUID": uuidd,
             };
             const response = await axios.post(
                 "https://app4.paypay.ne.jp/bff/v1/signIn",
@@ -45,7 +46,7 @@ module.exports = {
                 }
             ).catch(() => { });
             if (response.data?.error?.displayErrorResponse) return await interaction.reply({ embeds: [{ title: response.data?.error?.displayErrorResponse.title, description: response.data?.error?.displayErrorResponse.description, color: 0x3aeb34 }], ephemeral: true });
-            const pay = await paypay.aut({ ps: interaction.options.getString("password"), uid: uuid, rid: response.data.error.otpReferenceId, name: interaction.options.getString("label"), id: interaction.user.id });
+            const pay = await paypay.aut({ ps: interaction.options.getString("password"), uidd: uuidd, rid: response.data.error.otpReferenceId, name: interaction.options.getString("label"), id: interaction.user.id, uidc: uuidc });
             if (pay === 1) return interaction.reply({ embeds: [{ title: "エラー", description: `すでにこの名前のアカウントがあります。`, color: 0x3aeb34 }], ephemeral: true });
             if (pay === 2) return interaction.reply({ embeds: [{ title: "エラー", description: `1分以上時間をおいて試してください。`, color: 0x3aeb34 }], ephemeral: true });
             if (pay === 3) return interaction.reply({ embeds: [{ title: "エラー", description: `あなたのアカウントは既にあります。`, color: 0x3aeb34 }], ephemeral: true });
@@ -72,8 +73,9 @@ module.exports = {
             if (interaction.options.getString("label").length > 10) return await interaction.reply({ embeds: [{ title: "エラー", description: "ユーザー名は10字未満にしてください。", color: 0x3aeb34 }], ephemeral: true });
             const check = await func.dbget({ tabel: "paypay", v: `name="${interaction.options.getString("label")}"` });
             if (!check[0]?.name) return await interaction.reply({ embeds: [{ title: "エラー", description: `paypayにサインアップしてください。`, color: 0x3aeb34 }], ephemeral: true });
-            if (check[0].pass !== interaction.options.getString("password")) return await interaction.reply({ embeds: [{ title: "エラー", description: `入力された情報に間違いがあります1。`, color: 0x3aeb34 }], ephemeral: true });
-            const uuid = uuidv4();
+            if (check[0].pass !== interaction.options.getString("password")) return await interaction.reply({ embeds: [{ title: "エラー", description: `入力された情報に間違いがあります。`, color: 0x3aeb34 }], ephemeral: true });
+            const uuidc = uuidv4();
+            const uuidd = uuidv4();
             let header = {
                 "Client-Mode": "NORMAL",
                 "Client-OS-Version": "13.3.0",
@@ -83,10 +85,10 @@ module.exports = {
                 "Client-Version": "3.50.0",
                 "Is-Emulator": "false",
                 "Device-Name": "iPhone8,1",
-                "Client-UUID": uuid,
+                "Client-UUID": uuidc,
                 Timezone: "Asia/Tokyo",
                 "Client-OS-Type": "IOS",
-                "Device-UUID": uuid,
+                "Device-UUID": uuidd,
             };
             const response = await axios.post(
                 "https://app4.paypay.ne.jp/bff/v1/signIn",
@@ -94,14 +96,14 @@ module.exports = {
                     payPayLang: "ja",
                     signInAttemptCount: 1,
                     phoneNumber: interaction.options.getString("phone"),
-                    password: (interaction.options._hoistedOptions.map(x => x.name).includes('new_password'))?interaction.options.getString("new_password"):interaction.options.getString("password")
+                    password: (interaction.options._hoistedOptions.map(x => x.name).includes('new_password')) ? interaction.options.getString("new_password") : interaction.options.getString("password")
                 },
                 {
                     headers: header
                 }
             ).catch(() => { });
             if (response.data?.error?.displayErrorResponse) return await interaction.reply({ embeds: [{ title: response.data?.error?.displayErrorResponse.title, description: response.data?.error?.displayErrorResponse.description, color: 0x3aeb34 }], ephemeral: true });
-            const pay = await paypay.aut({ ps: (interaction.options._hoistedOptions.map(x => x.name).includes('new_password'))?interaction.options.getString("new_password"):interaction.options.getString("password"), uid: uuid, rid: response.data.error.otpReferenceId, name: interaction.options.getString("label"), id: interaction.user.id });
+            const pay = await paypay.aut({ ps: (interaction.options._hoistedOptions.map(x => x.name).includes('new_password')) ? interaction.options.getString("new_password") : interaction.options.getString("password"), uidd: uuidd, rid: response.data.error.otpReferenceId, name: interaction.options.getString("label"), id: interaction.user.id, uidc: uuidc });
             if (pay === 2) return interaction.reply({ embeds: [{ title: "エラー", description: `1分以上時間をおいて試してください。`, color: 0x3aeb34 }], ephemeral: true });
             const modal = new ModalBuilder()
                 .setCustomId(`pay,${interaction.user.id}`)

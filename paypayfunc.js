@@ -3,9 +3,10 @@ const axios = require('axios');
 let user = [];
 module.exports = {
     aut: async data => {
+        console.log(data)
         if (user[data.id]) return 2;
         const check = await func.dbget({ tabel: "paypay", v: `name="${data.name}"` });
-        user[data.id] = { ps: data.ps, uid: data.uid, rid: data.rid, name: data.name, id: data.id };
+        user[data.id] = { ps: data.ps, uid: data.uidd, rid: data.rid, name: data.name, id: data.id,uidc:data.uidc };
         if (check[0]?.name) return 1;
         const check2 = await func.dbget({ tabel: "paypay", v: `id="${data.id}"` });
         if (check2[0]?.name) return 3;
@@ -13,6 +14,7 @@ module.exports = {
     },
     otp: async id => {
         const data = user[id];
+        delete user[id]
         if (!data) return false;
         return data;
     },
@@ -26,7 +28,7 @@ module.exports = {
             "Client-OS-Type": "IOS",
             "Client-Version": "3.31.0",
             "Client-OS-Version": "13.3.1",
-            "Client-UUID": user[0].uuid,
+            "Client-UUID": user[0].uuidc,
             "Device-UUID": user[0].uuid,
             "Device-Name": "iPad8,3",
             "Network-Status": "WIFI",
