@@ -15,7 +15,7 @@ module.exports = {
         const option = interaction.options;
         await interaction.guild.members.me.roles.add(option.getRole("role")).then(async () => {
             const name = await func.dbget({ tabel: "account", v: `id="${interaction.user.id}"` });
-            if (!name[0]?.name) return await interaction.reply();
+            if (!name[0]?.name) return await interaction.reply({ embeds: [{ title: "エラー", description: "backupアカウントを設定してください。", color: 0x3aeb34 }], ephemeral: true });
             const backup = await func.dbget({ tabel: "backup", v: `guildid="${interaction.guild.id}"` });
             if (backup[0]?.username) {
                 const update = await func.dbupdate({ tabel: "backup", set: `username="${name[0].name}"`, v: `guildid="${interaction.guild.id}"` });
